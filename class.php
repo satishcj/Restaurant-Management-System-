@@ -1,11 +1,11 @@
 <?php
-	require 'config.php';
+	require 'connection/config.php';
  
 	class db_class{
-		public $host = db_host;
-		public $user = db_user;
-		public $pass = db_pass;
-		public $dbname = db_name;
+		public $host = DB_HOST;
+		public $user = DB_USER;
+		public $pass = DB_PASSWORD;
+		public $dbname = DB_DATABASE;
 		public $conn;
 		public $error;
  
@@ -22,7 +22,7 @@
 		}
  
 		public function save($username, $password, $firstname, $lastname){
-			$stmt = $this->conn->prepare("INSERT INTO `user` (username, password, firstname, lastname) VALUES(?, ?, ?, ?)") or die($this->conn->error);
+			$stmt = $this->conn->prepare("INSERT INTO `admin` (username, password, firstname, lastname) VALUES(?, ?, ?, ?)") or die($this->conn->error);
 			$stmt->bind_param("ssss", $username, $password, $firstname, $lastname);
 			if($stmt->execute()){
 				$stmt->close();
@@ -32,7 +32,7 @@
 		}
  
 		public function login($username, $password){
-			$stmt = $this->conn->prepare("SELECT * FROM `user` WHERE `username` = '$username' && `password` = '$password'") or die($this->conn->error);
+			$stmt = $this->conn->prepare("SELECT * FROM `admin` WHERE `username` = '$username' && `password` = '$password'") or die($this->conn->error);
 			if($stmt->execute()){
 				$result = $stmt->get_result();
 				$valid = $result->num_rows;
@@ -45,7 +45,7 @@
 		}
  
 		public function user_account($user_id){
-			$stmt = $this->conn->prepare("SELECT * FROM `user` WHERE `user_id` = '$user_id'") or die($this->conn->error);
+			$stmt = $this->conn->prepare("SELECT * FROM `admin` WHERE `user_id` = '$user_id'") or die($this->conn->error);
 			if($stmt->execute()){
 				$result = $stmt->get_result();
 				$fetch = $result->fetch_array();
