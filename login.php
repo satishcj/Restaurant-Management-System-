@@ -1,17 +1,17 @@
-
 <!DOCTYPE html>
 <html lang = "en">
 	<head>
 		<meta charset = "UTF-8" name "viewport" content = "width-device=width, initial-scale=1"/>
-		<title>User Login</title>
+		<title>Manager Login</title>
 		<link href="stylesheets/admin_styles.css" rel="stylesheet" type="text/css" />
-<script language="JavaScript" src="validation/user.js">
+<script language="JavaScript" src="validation/admin.js">
 </script>
 	</head>
 <body>
 	<div id="page">
 <div id="header">
-<h1>User Login </h1>
+<h1>Manager Login </h1>
+<p align="center">&nbsp;</p>
 </div>
 				
 
@@ -28,11 +28,9 @@
 </td>
     </tr>
     <tr>
-      <td>&nbsp;</td>
-      <td>									<button class = "btn btn-primary pull-left" name = "login"></span> Login</button>
-<label class = "pull-right">Don't have an account yet? <a href = "index1.php"> Click here</a></label>
-
-	  </td>
+      <td></td>
+      <td>									<button class = "btn btn-primary pull-left" name = "login"><span class = "glyphicon glyphicon-log-in"></span> Login</button>
+</td>
     </tr>
   </table>
 			</form>

@@ -9,7 +9,7 @@
 			session_start();
 			$_SESSION['user_id'] = $get_user['user_id'];
 			echo '<script>alert("Successfully login!")</script>';
-			echo '<script>window.location = "member-index.php"</script>'; 
+			echo '<script>window.location = "index.php"</script>'; 
 		}else{
 			echo '<script>alert("Invalid username or password")</script>';
 			echo '<script>window.location = "login.php"</script>';
